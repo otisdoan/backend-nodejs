@@ -12,11 +12,11 @@ configViewEngine(app);
 
 app.use('/', webRouter);
 
-
 connection.query(
   'select * from Users',
   (err, results) => {
     console.log(results);
   }
 )
+
 app.listen(port)
