@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
 }
 
 /* Add a black background color to the top navigation */
@@ -28,4 +29,22 @@
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+.form-add {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.add-user {
+  width: 50%;
+}
+
+.add-user fieldset {
+  padding: 1rem;
+}
+
+.add-user label {
+  min-width: 100px;
 }
