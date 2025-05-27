@@ -10,6 +10,9 @@ const port = process.env.PORT;
 
 configViewEngine(app);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/', webRouter);
 
 app.listen(port)
