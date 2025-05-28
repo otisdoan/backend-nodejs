@@ -9,7 +9,7 @@ const addUser = async (req, res) => {
   const { email, name, city } = req.body;
   const [results] = await connection.query('insert into Users (email, name, city) values (?, ?, ?)', [email, name, city]);
   console.log(results);
-  res.send('OK');
+  res.redirect('/')
 }
 
 const getAddUser = (req, res) => {

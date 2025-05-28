@@ -20,11 +20,29 @@
         <th>Email</th>
         <th>Name</th>
         <th>City</th>
+        <th>Action</th>
       </tr>
+      <% users.forEach((item)=> { %>
+        <tr>
+          <td>
+            <%= item.id %>
+          </td>
+          <td>
+            <%= item.email%>
+          </td>
+          <td>
+            <%= item.name%>
+          </td>
+          <td>
+            <%= item.city%>
+          </td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <% }) %>
     </table>
-    <p>
-      <%= users.map %>
-    </p>
   </div>
 </body>
 
