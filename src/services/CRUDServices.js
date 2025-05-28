@@ -11,7 +11,14 @@ const createUser = async (body) => {
   return results;
 }
 
+const inforUserEdit = async (id) => {
+  const [infor] = await connection.query('select * from Users where id = ?', [id]);
+  console.log(infor[0])
+  return infor[0];
+}
+
 module.exports = {
   getAllUser,
-  createUser
+  createUser,
+  inforUserEdit
 }
