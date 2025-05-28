@@ -1,14 +1,13 @@
 const connection = require('../configs/database');
+const { getAllUser, createUser } = require('../services/CRUDServices');
 
 const getHome = async (req, res) => {
-  const [results] = await connection.query('select * from Users');
+  const results = await getAllUser();
   res.render('home.ejs', { users: results })
 }
 
 const addUser = async (req, res) => {
-  const { email, name, city } = req.body;
-  const [results] = await connection.query('insert into Users (email, name, city) values (?, ?, ?)', [email, name, city]);
-  console.log(results);
+  await createUser(req.body);
   res.redirect('/')
 }
 
@@ -16,8 +15,14 @@ const getAddUser = (req, res) => {
   res.render('create.ejs');
 }
 
+const getUpdateUser = (req, res) => {
+  console.log(req.params.id);
+  res.render('edit.ejs');
+}
+
 module.exports = {
   getHome,
   addUser,
-  getAddUser
+  getAddUser,
+  getUpdateUser
 }
