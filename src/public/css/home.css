@@ -48,3 +48,28 @@
 .add-user label {
   min-width: 100px;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+.table-user {
+  margin-top: 2rem;
+  padding: 0 4rem 0 4rem;
+}
+
+.table-user h2 {
+  text-align: center;
+}

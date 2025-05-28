@@ -1,23 +1,23 @@
 const connection = require('../configs/database');
 
-const getHome = (req, res) => {
-  res.render('home.ejs')
+const getHome = async (req, res) => {
+  const [results] = await connection.query('select * from Users');
+  res.render('home.ejs', { users: results })
 }
 
-const addUser = (req, res) => {
+const addUser = async (req, res) => {
   const { email, name, city } = req.body;
-  const query = 'INSERT INTO Users (email, name, city) VALUES (?, ?, ?)';
-  connection.query(
-    query,
-    [email, name, city],
-    (err, results) => {
-      console.log(results);
-      res.send('Ok')
-    }
-  )
+  const [results] = await connection.query('insert into Users (email, name, city) values (?, ?, ?)', [email, name, city]);
+  console.log(results);
+  res.send('OK');
+}
+
+const getAddUser = (req, res) => {
+  res.render('create.ejs');
 }
 
 module.exports = {
   getHome,
-  addUser
+  addUser,
+  getAddUser
 }
