@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router();
-const { getHome, addUser, getAddUser, getUpdateUser } = require('../controller/homeController');
+const { getHome, addUser, getAddUser, getUpdateUser, pathUpdateUser } = require('../controller/homeController');
 
 router.get('/', getHome);
 router.post('/create-user', addUser);
 router.get('/create', getAddUser);
-router.get('/update/:id', getUpdateUser)
+router.get('/update/:id', getUpdateUser);
+router.patch('/update-user/:id', pathUpdateUser);
+
 module.exports = router;

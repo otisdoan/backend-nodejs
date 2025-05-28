@@ -13,7 +13,7 @@
     <a href="/create">Create User</a>
   </div>
   <div class="form-add">
-    <form action="/create-user" method="POST" class="add-user">
+    <form action="/update-user/<%= infor.id %>?_method=PATCH" method="POST" class="add-user">
       <fieldset>
         <legend>Update user:</legend>
         <label for="name">Name:</label>
