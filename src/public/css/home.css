@@ -73,3 +73,8 @@ tr:hover {
 .table-user h2 {
   text-align: center;
 }
+
+.action {
+  display: flex;
+  column-gap: 0.5rem;
+}
