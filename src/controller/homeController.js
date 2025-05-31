@@ -17,6 +17,7 @@ const getAddUser = (req, res) => {
 
 const getUpdateUser = async (req, res) => {
   const infor = await inforUserEdit(req.params.id);
+  console.log(infor);
   res.render('edit.ejs', { infor: infor });
 }
 
