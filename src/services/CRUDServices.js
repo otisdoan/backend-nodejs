@@ -1,29 +1,28 @@
 const connection = require('../configs/database');
+const User = require('../models/User');
 
 const getAllUser = async () => {
-  const [results] = await connection.query('select * from Users');
+  const results = await User.find() || [];
   return results;
 }
 
 const createUser = async (body) => {
-  const { email, name, city } = body;
-  const [results] = await connection.query('insert into Users (email, name, city) values (?, ?, ?)', [email, name, city]);
+  const results = await User.create(body)
   return results;
 }
 
 const inforUserEdit = async (id) => {
-  const [infor] = await connection.query('select * from Users where id = ?', [id]);
-  return infor && infor.length > 0 ? infor[0] : {};
+  const infor = await User.findById(id) || {}
+  return infor;
 }
 
 const updateUser = async (body, id) => {
-  const { email, name, city } = body;
-  const results = await connection.query('update Users set email = ?, name = ?, city = ? where id = ?', [email, name, city, id]);
+  const results = await User.findByIdAndUpdate(id, body);
   return results;
 }
 
 const deleteUserById = async (id) => {
-  const results = await connection.query('delete from Users where id = ?', [id]);
+  const results = await User.findByIdAndDelete(id)
   return results;
 }
 
