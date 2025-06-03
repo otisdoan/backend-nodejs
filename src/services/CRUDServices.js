@@ -17,7 +17,7 @@ const inforUserEdit = async (id) => {
 }
 
 const updateUser = async (body, id) => {
-  const results = await User.findByIdAndUpdate(id, body);
+  const results = await User.findByIdAndUpdate(id, body, { new: true });
   return results;
 }
 
