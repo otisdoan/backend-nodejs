@@ -3,6 +3,8 @@ const userValidate = require('../middleware/userValidate');
 const { getAllUser, createUser, updateUser, deleteUserById } = require('../services/CRUDServices');
 
 const getUser = async (req, res) => {
+  console.log('req');
+
   const users = await getAllUser();
   if (users) {
     res.status(200).json({
