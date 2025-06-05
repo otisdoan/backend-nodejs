@@ -1,15 +1,13 @@
 require('dotenv').config();
-const mysql = require('mysql2/promise');
+const mongoose = require('mongoose');
 
-const connection = mysql.createPool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-})
+const connectDB = () => {
+  try {
+    const connection = mongoose.connect(process.env.MONGO_URL)
+    return connection;
+  } catch (error) {
+    console.log(error)
 
-module.exports = connection;
+  }
+}
+module.exports = connectDB;
